@@ -77,3 +77,11 @@ Here are the basic steps to start using feature branches :
    With your feature branch now pushed, navigate to the project’s Azure DevOps page. On the main page, you should see a new little toolbar that shows your feature branch listed and asks if you want to `create a pull request` from it.
 
    > ## So let’s do it
+
+6. Azure CLI
+
+   | Purge Key Vault
+
+   ```bash
+   az keyvault purge --subscription faf9d896-4d54-433f-bb81-e1cd06d7da7d -n kvclashdevwe
+   ```

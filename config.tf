@@ -20,7 +20,7 @@ terraform {
   # backend "azurerm" {
   #   resource_group_name  = "Clash"
   #   storage_account_name = "clashstate"
-  #   container_name       = "tfstate"
+  #   container_name       = "tfstates"
   #   key                  = "dev.terraform.tfstate"
   # }
   backend "local" {}
