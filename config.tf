@@ -3,12 +3,12 @@ provider "azurerm" {
   # the AzureRM Provider can be found here:
   # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
 
-  subscription_id            = var.subscription_id
-  tenant_id                  = var.tenant_id
-  client_id                  = var.client_id
-  client_secret              = var.client_secret
   skip_provider_registration = true
-  features {}
+  features {
+    key_vault {
+      purge_soft_delete_on_destroy = true
+    }
+  }
 }
 
 terraform {
@@ -17,11 +17,7 @@ terraform {
     azurerm = "=2.97.0"
   }
 
-  # backend "azurerm" {
-  #   resource_group_name  = "Clash"
-  #   storage_account_name = "clashstate"
-  #   container_name       = "tfstates"
-  #   key                  = "dev.terraform.tfstate"
-  # }
-  backend "local" {}
+  backend "azurerm" {
+  }
+  #backend "local" {}
 }
