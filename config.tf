@@ -5,16 +5,20 @@ provider "azurerm" {
 
   skip_provider_registration = true
   features {
+    # https://github.com/hashicorp/terraform-provider-azurerm/issues/8968
     key_vault {
-      purge_soft_delete_on_destroy = true
+      purge_soft_delete_on_destroy = false
     }
   }
 }
 
 terraform {
-  required_version = "1.1.6"
+  required_version = "1.1.7"
   required_providers {
-    azurerm = "=2.97.0"
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=3.0.2"
+    }
   }
 
   backend "azurerm" {
